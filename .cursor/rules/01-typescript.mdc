@@ -1,0 +1,20 @@
+---
+description: TypeScript standards
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+
+# TypeScript
+
+- Use strict TypeScript.
+- Never use `any` unless absolutely unavoidable.
+- Prefer explicit domain types.
+- Avoid unnecessary type assertions.
+- Avoid non-null assertions.
+- Handle null and undefined explicitly.
+- Do not duplicate types.
+- Keep domain models independent from UI components.
+- Use interfaces for domain models when appropriate.
+- Use type aliases for unions and utility types.
+- Prefer discriminated unions for tool and state variants.
+- Export types explicitly when they are part of a module contract.

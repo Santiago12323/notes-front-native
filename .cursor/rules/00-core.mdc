@@ -1,0 +1,31 @@
+---
+description: Core engineering rules for the application
+alwaysApply: true
+---
+
+# Core Rules
+
+- Use TypeScript exclusively.
+- Follow Clean Code principles.
+- Keep components small and focused.
+- Keep functions small and focused.
+- Prefer composition over inheritance.
+- Avoid duplicated logic.
+- Avoid unnecessary abstractions.
+- Avoid premature optimization.
+- Never use `any` unless strictly unavoidable.
+- Do not use magic numbers or magic strings.
+- Use meaningful names.
+- Do not leave dead code.
+- Do not leave commented-out code.
+- Do not duplicate existing functionality.
+- Before creating a new component, hook, utility or service, check whether an existing implementation can be reused.
+- Do not refactor unrelated code while implementing a feature.
+- Do not modify configuration unless required.
+- Do not install dependencies unless necessary.
+- Do not implement backend functionality.
+- Do not implement authentication.
+- Do not implement remote synchronization.
+- Do not implement REST API integration in the MVP.
+
+When a requirement is ambiguous, prefer the smallest maintainable solution.

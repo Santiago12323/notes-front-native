@@ -1,0 +1,48 @@
+---
+description: Application architecture
+alwaysApply: true
+---
+
+# Architecture
+
+The application follows a modular frontend architecture.
+
+Main structure:
+
+src/
+├── app/
+├── components/
+├── modules/
+├── hooks/
+├── theme/
+├── types/
+├── constants/
+├── utils/
+└── services/
+
+Feature-specific functionality belongs inside:
+
+modules/<feature>/
+
+Recommended structure:
+
+modules/<feature>/
+├── components/
+├── hooks/
+├── models/
+├── pages/
+├── services/
+└── utils/
+
+Rules:
+
+- Pages represent screens.
+- Components represent UI.
+- Hooks represent reusable behavior and state logic.
+- Models represent domain types.
+- Services represent feature operations.
+- Utils contain pure functions.
+- Shared functionality belongs outside feature modules only when genuinely reusable.
+- Do not place business logic in pages.
+- Do not place feature-specific code inside global components.
+- Do not couple modules unnecessarily.

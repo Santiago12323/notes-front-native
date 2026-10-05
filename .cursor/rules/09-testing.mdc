@@ -1,0 +1,25 @@
+---
+description: Testing standards
+alwaysApply: true
+---
+
+# Testing
+
+Tests should focus on behavior.
+
+Prioritize:
+
+- domain logic
+- utilities
+- hooks
+- drawing transformations
+- notebook operations
+- note operations
+
+When fixing a bug, add a regression test when appropriate.
+
+Do not test implementation details unnecessarily.
+
+Tests must be deterministic.
+
+Do not reduce existing test coverage to make code pass.

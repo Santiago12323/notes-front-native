@@ -1,0 +1,33 @@
+---
+description: Shared UI component standards
+globs: ["src/components/**/*"]
+alwaysApply: true
+---
+
+# Shared Components
+
+Shared components must be generic and reusable.
+
+Examples:
+
+- Button
+- Text
+- Icon
+- Card
+- Input
+- Modal
+- Divider
+- EmptyState
+- Loading
+- Header
+
+Rules:
+
+- Do not place feature-specific business logic in shared components.
+- Do not make components unnecessarily configurable.
+- Avoid excessive boolean props.
+- Use the centralized theme.
+- Keep components small.
+- Prefer composition.
+- Shared components must not depend on notebook-specific logic.
+- Shared components must not depend on drawing-specific logic.

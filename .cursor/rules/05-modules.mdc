@@ -1,0 +1,31 @@
+---
+description: Feature module standards
+globs: ["src/modules/**/*"]
+alwaysApply: true
+---
+
+# Modules
+
+Current modules:
+
+- notebooks
+- notes
+- drawing
+- settings
+
+Each module should be as self-contained as possible.
+
+Feature-specific:
+
+- components belong in components/
+- hooks belong in hooks/
+- models belong in models/
+- screens belong in pages/
+- feature operations belong in services/
+- pure helpers belong in utils/
+
+Do not import internal implementation details from another module unless strictly necessary.
+
+Do not create global code merely for convenience.
+
+Move code to shared layers only when it has a real reuse case.

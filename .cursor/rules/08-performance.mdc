@@ -1,0 +1,28 @@
+---
+description: Frontend performance rules
+alwaysApply: true
+---
+
+# Performance
+
+Prioritize perceived responsiveness.
+
+Avoid unnecessary re-renders.
+
+Do not recreate expensive objects on every render.
+
+Use memoization only when it provides measurable or meaningful value.
+
+Do not optimize prematurely.
+
+Drawing interactions are performance-sensitive.
+
+Do not update unrelated components during pointer movement.
+
+Avoid storing rapidly changing drawing state in global state.
+
+Large drawings should not cause the entire screen to re-render.
+
+Lists must use appropriate virtualization when necessary.
+
+Images and assets should be handled efficiently.

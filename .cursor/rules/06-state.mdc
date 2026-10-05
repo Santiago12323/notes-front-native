@@ -1,0 +1,27 @@
+---
+description: State management rules
+alwaysApply: true
+---
+
+# State Management
+
+Prefer local component state when state is local.
+
+Use feature hooks for feature-specific state.
+
+Do not introduce a global state library unless the project genuinely requires it.
+
+Separate:
+
+- UI state
+- drawing state
+- notebook state
+- application state
+
+Do not put unrelated state into a single global store.
+
+Avoid unnecessary state duplication.
+
+Prefer derived values instead of storing values that can be calculated.
+
+Keep state updates predictable and immutable.

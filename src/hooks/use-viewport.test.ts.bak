@@ -1,0 +1,74 @@
+import { DEFAULT_VIEWPORT, MAX_ZOOM, MIN_ZOOM, useViewport } from './use-viewport';
+
+describe('useViewport', () => {
+  it('returns the default viewport initially', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { result } = renderHook(() => useViewport());
+    expect(result.current.viewport).toEqual(DEFAULT_VIEWPORT);
+  });
+
+  it('sets the viewport with setViewport', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { result } = renderHook(() => useViewport());
+    const newViewport = { x: 10, y: 20, scale: 1.5 };
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    act(() => {
+      result.current.setViewport(newViewport);
+    });
+    expect(result.current.viewport).toEqual(newViewport);
+  });
+
+  it('sets pan with setPan', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { result } = renderHook(() => useViewport());
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    act(() => {
+      result.current.setPan(100, 200);
+    });
+    expect(result.current.viewport.x).toBe(100);
+    expect(result.current.viewport.y).toBe(200);
+    expect(result.current.viewport.scale).toBe(DEFAULT_VIEWPORT.scale);
+  });
+
+  it('sets scale with setScale within limits', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { result } = renderHook(() => useViewport());
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    act(() => {
+      result.current.setScale(MIN_ZOOM - 0.1);
+    });
+    expect(result.current.viewport.scale).toBe(MIN_ZOOM);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    act(() => {
+      result.current.setScale(MAX_ZOOM + 0.1);
+    });
+    expect(result.current.viewport.scale).toBe(MAX_ZOOM);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    act(() => {
+      result.current.setScale(1.75);
+    });
+    expect(result.current.viewport.scale).toBe(1.75);
+  });
+
+  it('resets viewport with resetViewport', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { result } = renderHook(() => useViewport());
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    act(() => {
+      result.current.setViewport({ x: 10, y: 20, scale: 1.5 });
+      result.current.resetViewport();
+    });
+    expect(result.current.viewport).toEqual(DEFAULT_VIEWPORT);
+  });
+});

@@ -1,0 +1,53 @@
+---
+description: Digital notebook drawing system
+globs: ["src/modules/drawing/**/*"]
+alwaysApply: true
+---
+
+# Drawing System
+
+The drawing system must be independent from notebook navigation.
+
+Supported tools:
+
+- pen
+- brush
+- eraser
+
+Supported properties:
+
+- color
+- stroke width
+- opacity when supported
+
+A drawing consists of strokes.
+
+A stroke contains:
+
+- id
+- points
+- color
+- width
+- tool
+
+A point contains:
+
+- x
+- y
+
+Drawing history must support:
+
+- undo
+- redo
+
+Do not represent the drawing only as a final bitmap.
+
+Keep drawing data structured whenever possible.
+
+The canvas renderer must be isolated from the drawing domain model.
+
+Do not trigger unnecessary application-wide renders during drawing.
+
+Drawing interactions should be optimized for touch and stylus input.
+
+Do not mix drawing state with navigation state.

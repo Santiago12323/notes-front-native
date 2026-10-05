@@ -1,18 +1,48 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { I18nProvider } from '@/i18n/i18n-provider';
+import { NotebooksProvider } from '@/modules/notebooks/hooks/notebooks-provider';
+import { NotesProvider } from '@/modules/notes/hooks/notes-provider';
+import { colorSchemes } from '@/theme/colors';
+import { ThemeProvider, useTheme } from '@/theme/theme-provider';
 
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <GestureHandlerRootView style={styles.root}>
+      <ThemeProvider>
+        <I18nProvider>
+          <ThemedRoot />
+        </I18nProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
+
+function ThemedRoot() {
+  const { colors, scheme } = useTheme();
+
+  return (
+    <NotebooksProvider>
+      <NotesProvider>
+        <StatusBar style={scheme === colorSchemes.dark ? 'light' : 'dark'} />
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: {
+              backgroundColor: colors.background,
+            },
+          }}
+        />
+      </NotesProvider>
+    </NotebooksProvider>
+  );
+}
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});

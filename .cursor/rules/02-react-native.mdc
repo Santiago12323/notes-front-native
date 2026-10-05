@@ -1,0 +1,22 @@
+---
+description: React Native implementation standards
+globs: ["**/*.tsx", "**/*.ts"]
+alwaysApply: true
+---
+
+# React Native
+
+- Use functional components.
+- Use hooks.
+- Do not use class components.
+- Keep JSX readable.
+- Extract complex JSX into smaller components.
+- Do not put business logic inside UI components.
+- Do not put persistence logic inside UI components.
+- Do not put API logic inside UI components.
+- Reuse shared components whenever possible.
+- Reuse theme tokens.
+- Avoid unnecessary inline styles.
+- Avoid unnecessary re-renders.
+- Keep platform-specific logic isolated.
+- Prefer composition over large configurable components.

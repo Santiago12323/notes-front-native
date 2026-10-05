@@ -1,56 +1,82 @@
-# Welcome to your Expo app 👋
+# Notas 1.0
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Primera versión de una aplicación para escribir a mano en cuadernos digitales. Está hecha con Expo, React Native y TypeScript, y funciona en Web, Android e iOS.
 
-## Get started
+Esta versión no tiene cuentas, servidor ni sincronización. Los cuadernos y los dibujos viven en memoria: al cerrar o recargar la aplicación se pierden.
 
-1. Install dependencies
+## Qué incluye
 
-   ```bash
-   npm install
-   ```
+### Cuadernos
 
-2. Start the app
+- Lista de cuadernos.
+- Crear, renombrar y eliminar.
+- Título y descripción opcional.
+- Portadas: Salvia, Arcilla, Tinta y Arena.
 
-   ```bash
-   npx expo start
-   ```
+### Páginas
 
-In the output, you'll find options to open the app in a
+- Crear, editar y eliminar páginas dentro de un cuaderno.
+- Título, asunto opcional y fecha.
+- Ordenar páginas hacia arriba o hacia abajo.
+- Pasar a la página anterior o siguiente desde el editor.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Dibujo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Lápiz, pincel y borrador.
+- Doce colores de tinta.
+- Cuatro grosores: pequeño, mediano, grande y extra grande.
+- Deshacer y rehacer.
+- Acercar, alejar y restablecer el zoom.
+- Desplazar el papel.
+- El trazo se guarda como puntos, no como una imagen final.
 
-## Get a fresh project
+### Papel
 
-When you're ready, run:
+- En blanco.
+- Cuadrícula. Al hacer zoom o desplazar el papel, la cuadrícula sigue cubriendo el área visible.
+- Líneas.
+- Puntos.
+
+### Ajustes
+
+- Tema claro y oscuro.
+- Idioma: español e inglés.
+- La interfaz se adapta a teléfono y a un ancho de tablet.
+
+## Cómo iniciar el proyecto
+
+Hace falta Node.js 22.13 o superior.
 
 ```bash
-npm run reset-project
+npm install
+npx setup-skia-web public
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+`setup-skia-web` copia `canvaskit.wasm` a `public/`. Sin ese archivo, el lienzo no dibuja en Web.
 
-### Other setup steps
+Con el servidor en marcha:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+- Escanea el código QR con Expo Go para abrirla en un teléfono.
+- Pulsa `w` para abrirla en el navegador.
+- Pulsa `a` para Android o `i` para iOS, si el emulador ya está disponible.
 
-## Learn more
+También puedes arrancar cada plataforma directamente:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm run web
+npm run android
+npm run ios
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Comprobaciones
 
-## Join the community
+```bash
+npm run typecheck
+npm test
+npm run lint
+```
 
-Join our community of developers creating universal apps.
+## Versión
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**1.0.0** — primera versión usable del cuaderno: organización local, páginas y dibujo a mano.
